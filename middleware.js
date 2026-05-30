@@ -31,9 +31,10 @@ export async function middleware(request) {
   const { data: { user } } = await supabase.auth.getUser()
 
   const isAuthPage = request.nextUrl.pathname.startsWith('/login') || request.nextUrl.pathname.startsWith('/forgot-password')
+  const isUpdatePassword = request.nextUrl.pathname.startsWith('/update-password')
   const isCallback = request.nextUrl.pathname.startsWith('/auth/callback')
 
-  if (!user && !isAuthPage && !isCallback) {
+  if (!user && !isAuthPage && !isCallback && !isUpdatePassword) {
     const loginUrl = request.nextUrl.clone()
     loginUrl.pathname = '/login'
     return NextResponse.redirect(loginUrl)
