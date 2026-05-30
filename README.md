@@ -2,6 +2,9 @@
 
 DraftResume is an AI-powered, BYOK (Bring Your Own Key) resume builder designed to help users quickly extract, tailor, and export ATS-friendly resumes and cover letters. 
 
+![Dashboard Screenshot](./public/screenshot-dashboard.png)
+![Login Screenshot](./public/screenshot-login.png)
+
 ## 🚀 Features
 
 - **AI-Powered Parsing**: Paste a raw, unformatted resume or LinkedIn export, and let AI extract it into a structured format.
