@@ -41,7 +41,8 @@ export async function GET(request) {
   }
 
   // URL to redirect to after sign in process completes
-  let redirectUrl = requestUrl.origin
+  const next = requestUrl.searchParams.get('next')
+  let redirectUrl = next ? `${requestUrl.origin}${next}` : requestUrl.origin
   // Fix for Windows dev environment where Next.js binds to 0.0.0.0
   if (redirectUrl.includes('0.0.0.0')) {
     redirectUrl = redirectUrl.replace('0.0.0.0', 'localhost')

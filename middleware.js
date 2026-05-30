@@ -30,7 +30,7 @@ export async function middleware(request) {
   // refreshing the auth token and getting user
   const { data: { user } } = await supabase.auth.getUser()
 
-  const isAuthPage = request.nextUrl.pathname.startsWith('/login')
+  const isAuthPage = request.nextUrl.pathname.startsWith('/login') || request.nextUrl.pathname.startsWith('/forgot-password')
   const isCallback = request.nextUrl.pathname.startsWith('/auth/callback')
 
   if (!user && !isAuthPage && !isCallback) {
